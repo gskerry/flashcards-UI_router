@@ -27,19 +27,23 @@ app.controller('MainController', function ($scope, FlashCardsFactory) {
 
     $scope.chosenCategory = 'All';
 
-    $scope.getCategoryCards = function (category) {
-        $scope.chosenCategory = category || 'All';
-        $scope.loading = true;
-        $scope.failed = false;
-        FlashCardsFactory.getFlashCards(category).then(function (cards) {
-            $scope.loading = false;
-            $scope.flashCards = cards;
-        }).catch(function(err){
-            $scope.loading = false;
-            $scope.error = err;
-        });
-    };
 
+    $scope.getCategoryCards = function (category) {
+                $scope.chosenCategory = category || 'All';
+                $scope.loading = true;
+                $scope.failed = false;
+                FlashCardsFactory.getFlashCards(category).then(function (cards) {
+                    $scope.loading = false;
+                    $scope.flashCards = cards;
+                }).catch(function(err){
+                    $scope.loading = false;
+                    $scope.error = err;
+                });
+            };
+
+    
+    // $scope.getCategoryCards = FlashCardsFactory.getCategoryCards();
+    // FlashCardsFactory.getCategoryCards();
     $scope.getCategoryCards();
 
 });

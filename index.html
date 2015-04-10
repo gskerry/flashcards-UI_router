@@ -21,6 +21,7 @@
     <ul>
         <li><a ui-sref="cards">Cards</a></li>
         <li><a ui-sref="waddup">Waddup</a></li>
+        <li><a ui-sref="cards.category({category: 'Express'})">Express Cards</a></li>
     </ul>
 
     <body ng-app="FlashCards">
@@ -31,7 +32,6 @@
         <div ng-controller="MainController">
             <ui-view></ui-view>
         </div>
-
 
     </body>
 

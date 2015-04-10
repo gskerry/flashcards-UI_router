@@ -22,14 +22,17 @@
 
     <button
             ng-repeat="category in categories"
-            ng-click="getCategoryCards(category)"
-            ng-class="{ active: chosenCategory === category }">
+            ng-class="{ active: chosenCategory === category }"
+            ui-sref="cards.category({category: category})">
         {{ category }}
     </button>
+    <!-- ng-click="getCategoryCards(category)" -->
 
     <loader ng-show="loading"></loader>
 
+    <ui-view></ui-view>
     <flash-card card="flashCard" ng-repeat="flashCard in flashCards | orderBy:'question'" ng-hide="loading || error"></flash-card>
+    
 
     <div ng-show="error">
         <h2>FAILED TO GET CARDS… try again perhaps?</h2>
